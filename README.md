@@ -1,3 +1,5 @@
+My thought process in creating the SPA
+
 Start working on server get it running
 Start up an index file
     angular
@@ -19,3 +21,4 @@ Customers
 
 Orders
  - HTML Mockup
+ - Should I do nested controllers?
