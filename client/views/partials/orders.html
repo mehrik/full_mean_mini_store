@@ -15,7 +15,7 @@
 </form>
 
 <!-- text input used for filtering -->
-<input type='text' placeholder='filter...' class='u-pull-right'>
+<input type='text' placeholder='filter...' class='u-pull-right' ng-model='searchText'>
 
 <!-- table to display different customer orders -->
 <table class='u-full-width'>
@@ -29,7 +29,7 @@
     </thead>
     <tbody>
     <!-- use ng repeat for all orders -->
-        <tr ng-repeat='order in orders'>
+        <tr ng-repeat='order in orders | filter:searchText'>
             <td ng-bind='order._customer.name'></td>
             <td ng-bind='order.product'></td>
             <td ng-bind='order.quantity'></td>
