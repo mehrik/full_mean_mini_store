@@ -3,19 +3,15 @@
 <!-- add order based on existing customer and existing products -->
 <form>
     <label for='customers'>Customer</label>
-    <select id='customers'>
-        <option>Customer1</option>
-        <option>Customer2</option>
-        <option>Customer3</option>
-    </select>
+    <select ng-options='customer.name for customer in customers' ng-model='newOrder.customer'></select>
     <label for='products'>Order</label>
-    <input type='number' min=1>
-    <select>
+    <input type='number' min=1 ng-model='newOrder.quantity'>
+    <select ng-model='newOrder.product'>
         <option>Nike Shoes</option>
         <option>Gloves</option>
         <option>Computer</option>
     </select>
-    <button class='button-primary'>Order</button>
+    <button class='button-primary' ng-click="addNewOrder()">Order</button>
 </form>
 
 <!-- text input used for filtering -->
@@ -33,11 +29,11 @@
     </thead>
     <tbody>
     <!-- use ng repeat for all orders -->
-        <tr>
-            <td>Maric Sobreo</td>
-            <td>Computer</td>
-            <td>1</td>
-            <td>Yesterday</td>
+        <tr ng-repeat='order in orders'>
+            <td ng-bind='order._customer.name'></td>
+            <td ng-bind='order.product'></td>
+            <td ng-bind='order.quantity'></td>
+            <td ng-bind='order.created_at'></td>
         </tr>
     </tbody>
 </table>

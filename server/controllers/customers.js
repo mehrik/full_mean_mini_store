@@ -11,7 +11,7 @@ module.exports = {
     },
     // create new customer
     create: function(req, res) {
-        // create new customer with informatin from the client
+        // create new customer with information from the client
         var customer = new Customer({
             name: req.body.name,
         });

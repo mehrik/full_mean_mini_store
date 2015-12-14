@@ -21,4 +21,9 @@ Customers
 
 Orders
  - HTML Mockup
- - Should I do nested controllers?
+ - Factories
+ - Controllers
+ - Angular Routes
+ - Server Models
+ - Server Controllers
+ - Server routes

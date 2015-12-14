@@ -15,7 +15,8 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/partials/products.html'
         })
         .when('/orders', {
-            templateUrl: 'views/partials/orders.html'
+            templateUrl: 'views/partials/orders.html',
+            controller: 'OrdersController'
         })
         .when('/customers', {
             templateUrl: 'views/partials/customers.html',
