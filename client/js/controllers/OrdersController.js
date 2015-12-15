@@ -24,6 +24,5 @@ myApp.controller('OrdersController', function($scope, OrderFactory, CustomerFact
             });
         });
     }
-
     $scope.index();
 })

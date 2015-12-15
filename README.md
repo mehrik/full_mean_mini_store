@@ -42,9 +42,9 @@ When adding a new order, update the quantity of product based on quantity ordere
 - when product quantity reaches zero, make it say "sold out" on the products page
     - update in factory, controller, and server controller
 
-     <style type="text/css">
-    * {
-        outline: green dashed thin;
-    }
-    </style>
+-------------------
+Dashboard
+- angular routes
+- create Controller, no need for factory
+- controller contains all factories
 

@@ -1,8 +1,10 @@
 {
   "name": "Mini_mean_store",
   "dependencies": {
+    "angular-moment": "^0.10.3",
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "moment": "^2.10.6",
     "mongoose": "^4.3.1"
   }
 }

@@ -1,5 +1,5 @@
 // initialize angular module
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'angularMoment']);
 // configuration for angular routes
 
 myApp.config(function ($routeProvider) {
@@ -9,7 +9,8 @@ myApp.config(function ($routeProvider) {
             redirectTo: '/dashboard'
         })
         .when('/dashboard', {
-            templateUrl: 'views/partials/dashboard.html'
+            templateUrl: 'views/partials/dashboard.html',
+            controller: 'DashboardController'
         })
         .when('/products', {
             templateUrl: 'views/partials/products.html',

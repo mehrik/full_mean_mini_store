@@ -1,4 +1,4 @@
-<h1>Products</h1>
+<h2>Products</h2>
 
 <div class='three columns'>
     <form>
@@ -21,7 +21,7 @@
 
 <div class='eight columns'>
     <div class='row'>
-        <div class='three columns shit' ng-repeat='product in products'>
+        <div class='three columns product-box' ng-repeat='product in products'>
             <img src="{{ product.image }}" class='defualt-img-size'>
             <label class='align' ng-bind='product.name'></label>
             <p class='align'>({{ product.quantity }} left)</p>

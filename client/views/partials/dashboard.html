@@ -1,6 +1,43 @@
-<h1>Dashboard</h1>
+<h2>Dashboard</h2>
 
-<div class='col-md-1'>
-    <input type="text" placeholder="search...">
-    <button>Filter</button>
+<div class='three columns'>
+    <input type="text" placeholder="search..." class='u-full-width' ng-model='searchText'>
+</div>
+
+<div class='eight columns'>
+    <!-- product preview -->
+    <div class='row'>
+        <div class='three columns product-box' ng-repeat='product in products | filter:searchText | limitTo:4'>
+            <img src="{{ product.image }}" class='defualt-img-size'>
+            <label class='align' ng-bind='product.name'></label>
+            <p class='align'>(<span ng-bind='product.quantity'></span> left)</p>
+        </div>
+        <div class='align'>
+            <a href="#/products">show all products...</a>
+        </div>
+    </div>
+    <!-- recent orders -->
+    <div class='row'>
+        <h4>Recent orders</h4>
+        <ul>
+            <li ng-repeat='order in orders | orderBy:"-created_at" | limitTo:3'>
+                <span ng-bind="order._customer.name"></span> has purchased <span ng-bind="order.quantity"></span> <span ng-bind="order.product"></span> (<span am-time-ago="order.created_at"></span>)
+            </li>
+        </ul>
+        <div class='align'>
+            <a href="#/orders">show all orders...</a>
+        </div>
+    </div>
+    <!-- New Customers -->
+    <div class='row'>
+        <h4>New Customers</h4>
+        <ul>
+            <li ng-repeat='customer in customers | orderBy:"-created_at" | limitTo:3'>
+                <span ng-bind="customer.name"></span> joined the store. (<span am-time-ago="customer.created_at"></span>)
+            </li>
+        </ul>
+        <div class='align'>
+            <a href="#/customers">show all customers...</a>
+        </div>
+    </div>
 </div>
