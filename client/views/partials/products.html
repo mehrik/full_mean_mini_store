@@ -1,20 +1,49 @@
 <h2>Products</h2>
 
 <div class='three columns'>
-    <form>
-        <input type='text' class='u-full-width' placeholder='filter...'>
-        <button class='u-full-width'>Filter</button> 
-    </form>
-    <h6>Add a new product</h6>
-    <form>
+    <input type='text' class='u-full-width' placeholder='filter...'>
+    <h3>Add a new product</h3>
+    <form name='productForm'>
         <label>Name:</label>
-        <input type='text' placeholder='name...' class='u-full-width' ng-model="newProduct.name">
+        <input type='text' placeholder='name...' class='u-full-width'
+            name='productName' 
+            ng-model="newProduct.name"
+            ng-minlength='2'
+            required/>
+        <!-- name validation -->
+        <div ng-messages='productForm.productName.$error' role='alert' ng-show='productForm.productName.$touched' style='color:maroon'>
+            <div ng-message='minlength'>Your field is too short</div>
+        </div>
+
         <label>Image (url):</label>
-        <input type='text' placeholder='http://' class='u-full-width' ng-model="newProduct.image">
+        <input type='text' placeholder='http://' class='u-full-width'
+            name='imgURL' 
+            ng-model="newProduct.image"
+            ng-minlength='2'/>
+        <!-- Image URL validation -->
+        <div ng-messages='productForm.imgURL.$error' role='alert' ng-show='productForm.imgURL.$touched' style='color:maroon'>
+            <div ng-message='minlength'>Not a valid URL</div>
+        </div>
+
         <label>Description:</label>
-        <textarea class='u-full-width' ng-model="newProduct.description"></textarea>
+        <textarea class='u-full-width'
+            name:'productDescription'
+            ng-model="newProduct.description"
+            required/></textarea>
+        <!-- Description validation -->
+        <div ng-messages='productForm.prodcutDescription.$error' role='alert' ng-show='productForm.prodcutDescription.$touched' style='color:maroon'>
+            <div ng-message='required'>This field is required</div>
+        </div>
+
         <label>Initial Quantity</label>
-        <input type='number' min=1 class='u-full-width' ng-model='newProduct.quantity'> 
+        <input type='number' min=1 class='u-full-width' 
+            ng-model='newProduct.quantity'
+            required/> 
+        <!-- Quantity validation -->
+        <div ng-messages='productForm.prodcutDescription.$error' role='alert' ng-show='productForm.prodcutDescription.$touched' style='color:maroon'>
+            <div ng-message='required'>This field is required</div>
+        </div>
+
         <button class='button-primary u-full-width' ng-click='addNewProduct()'>Create</button>
     </form>
 </div>
