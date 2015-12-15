@@ -37,6 +37,11 @@ Products
  - Server Controllers
  - Server routes
 
+Get products name to loop in the orders database
+When adding a new order, update the quantity of product based on quantity ordered
+- when product quantity reaches zero, make it say "sold out" on the products page
+    - update in factory, controller, and server controller
+
      <style type="text/css">
     * {
         outline: green dashed thin;

@@ -29,6 +29,8 @@ module.exports = function(app) {
         orders.retrieveAll(req, res);
     })
     app.post('/orders/newOrder', function(req, res) {
+        console.log('################################');
+        console.log(req.body);
         orders.create(req, res);
     })
 
@@ -42,4 +44,7 @@ module.exports = function(app) {
         // console.log(req.body);
         products.newProduct(req, res);
     });
+    app.post('/products/updateProduct', function(req, res) {
+        products.updateProduct(req, res);
+    })
 }

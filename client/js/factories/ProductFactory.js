@@ -15,5 +15,11 @@ myApp.factory('ProductFactory', function($http) {
         })
     }
 
+    factory.updateProduct = function(product, callback) {
+        $http.post('/products/updateProduct', product).success(function (output) {
+            callback();
+        });
+    }
+
     return factory;
 });

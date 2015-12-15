@@ -1,5 +1,5 @@
 // Importing CustomerFactory to be able to display people;
-myApp.controller('OrdersController', function($scope, OrderFactory, CustomerFactory) {
+myApp.controller('OrdersController', function($scope, OrderFactory, CustomerFactory, ProductFactory) {
     $scope.index = function() {
         // grab all orders
         OrderFactory.retrieveAllOrders(function (orders) {
@@ -9,14 +9,20 @@ myApp.controller('OrdersController', function($scope, OrderFactory, CustomerFact
         // grab all customers
         CustomerFactory.retrieveAllCustomers(function (customers) {
             $scope.customers = customers;
-        })
+        });
+        ProductFactory.retrieveAll(function (products) {
+            $scope.products = products;
+        });
+
     }
     $scope.addNewOrder = function() {
         console.log('New Order Created!', $scope.newOrder);
         OrderFactory.addNewOrder($scope.newOrder, function() {
-            $scope.newOrder = {};
-            $scope.index();
-        })
+            ProductFactory.updateProduct($scope.newOrder, function() {
+                $scope.newOrder = {};
+                $scope.index();
+            });
+        });
     }
 
     $scope.index();

@@ -5,13 +5,8 @@
     <label for='customers'>Customer</label>
     <select ng-options='customer.name for customer in customers' ng-model='newOrder.customer'></select>
     <label for='products'>Order</label>
-    <input type='number' min=1 ng-model='newOrder.quantity'>
-    <!-- This select needs to be populated by the products collection -->
-    <select ng-model='newOrder.product'>
-        <option>Nike Shoes</option>
-        <option>Gloves</option>
-        <option>Computer</option>
-    </select>
+    <input type='number' min=1 max='{{ newOrder.product.quantity }}' ng-model='newOrder.quantity'>
+    <select ng-options='product.name for product in products' ng-model='newOrder.product'></select>
     <button class='button-primary' ng-click="addNewOrder()">Order</button>
 </form>
 

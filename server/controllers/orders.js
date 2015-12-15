@@ -21,7 +21,7 @@ module.exports = {
         var order = new Order({
             _customer: req.body.customer._id,
             // Product will have to be an ObjectId later
-            product: req.body.product,
+            product: req.body.product.name,
             quantity: req.body.quantity
         });
         // Save the order and check for errors
