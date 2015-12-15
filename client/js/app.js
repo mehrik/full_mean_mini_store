@@ -1,5 +1,5 @@
 // initialize angular module
-var myApp = angular.module('myApp', ['ngRoute', 'angularMoment']);
+var myApp = angular.module('myApp', ['ngRoute', 'angularMoment', 'ngMessages']);
 // configuration for angular routes
 
 myApp.config(function ($routeProvider) {

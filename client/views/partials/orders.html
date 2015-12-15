@@ -1,14 +1,43 @@
 <h2>Add a new order</h2>
 
 <!-- add order based on existing customer and existing products -->
-<form>
+<form name='orderForm'>
     <label for='customers'>Customer</label>
-    <select ng-options='customer.name for customer in customers' ng-model='newOrder.customer'></select>
+    <select name='orderCustomer'
+            ng-options='customer.name for customer in customers' 
+            ng-model='newOrder.customer'
+            required></select>
+
     <label for='products'>Order</label>
-    <input type='number' min=1 max='{{ newOrder.product.quantity }}' ng-model='newOrder.quantity'>
-    <select ng-options='product.name for product in products' ng-model='newOrder.product'></select>
+    <input type='number' 
+        name='orderQty' 
+        min=1 
+        max='{{ newOrder.product.quantity }}' 
+        ng-model='newOrder.quantity'
+        required>
+
+    <select name='orderProduct'
+        ng-options='product.name for product in products'
+        ng-model='newOrder.product'
+        required></select>
+
     <button class='button-primary' ng-click="addNewOrder()">Order</button>
 </form>
+
+<!-- customer validation  -->
+<div ng-messages='orderForm.orderCustomer.$error' role='alert' style='color:maroon'>
+    <div ng-message='required'>Customer field required</div>
+</div>
+<!-- quantity validation  -->
+<div ng-messages='orderForm.orderQty.$error' role='alert' ng-show='orderForm.orderQty.$invalid' style='color:maroon'>
+    <div ng-message='required'>Quantity Field is requried</div>
+    <div ng-message='max'>Cannot order more than available</div>
+    <div ng-message='min'>Minimum order is 1</div>
+</div>
+<!-- product choice validation -->
+<div ng-messages='orderForm.orderProduct.$error' role='alert' ng-show='orderForm.orderProduct.$dirty' style='color:maroon'>
+    <div ng-message>Please select a product</div>
+</div>
 
 <!-- text input used for filtering -->
 <input type='text' placeholder='filter...' class='u-pull-right' ng-model='searchText'>
