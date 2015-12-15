@@ -47,4 +47,8 @@ Dashboard
 - angular routes
 - create Controller, no need for factory
 - controller contains all factories
+-------------------
+Validations
+ - customer name validation
+ - currently still working on name validation for customers
 

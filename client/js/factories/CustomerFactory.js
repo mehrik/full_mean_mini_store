@@ -14,9 +14,22 @@ myApp.factory('CustomerFactory', function($http) {
     }
     // Insert new customer into the database
     factory.addCustomer = function (newCustomer, callback) {
-        $http.post('/customers/create', newCustomer).success(function(output){
-            callback();
-        });
+        // validation for duplicates
+        var duplicates;
+        var error;
+        for (var i = 0; i < customers.length; i++) {
+            if(newCustomer.name == customers[i].name) {
+                duplicates = true;
+            }
+        }
+        if (!duplicates) {
+            $http.post('/customers/create', newCustomer).success(function(output){
+                callback();
+            });
+        } else {
+            error = 'Name already exists';
+            callback(error);
+        }
     }
     // Remove a customer from the database
     factory.removeCustomer = function(customer, callback) {

@@ -2,7 +2,6 @@ myApp.controller('ProductsController', function($scope, ProductFactory) {
     $scope.index = function() {
         ProductFactory.retrieveAll(function (data) {
             $scope.products = data;
-            console.log('Scope.products', $scope.products, data);
         })
     }
     $scope.addNewProduct = function() {
