@@ -10,14 +10,14 @@ Start up partials
     Dashboard, Products, Orders, Customers
 -----------------------
 Customers
-    - HTML Mockup
-    - Factories
-    - Controllers
-    - Angular Routes
-    - Server Models
-    - Server Controllers
-    - Server routes
-    - $http.get/post connector
+ - HTML Mockup
+ - Factories
+ - Controllers
+ - Angular Routes
+ - Server Models
+ - Server Controllers
+ - Server routes
+ - $http.get/post connector
 
 Orders
  - HTML Mockup
@@ -27,3 +27,19 @@ Orders
  - Server Models
  - Server Controllers
  - Server routes
+
+Products
+ - HTML Mockup
+ - Factory
+ - Controller
+ - Angular routes
+ - Server Models
+ - Server Controllers
+ - Server routes
+
+     <style type="text/css">
+    * {
+        outline: green dashed thin;
+    }
+    </style>
+

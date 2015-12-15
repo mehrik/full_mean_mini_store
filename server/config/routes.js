@@ -3,6 +3,7 @@
 var bodyParser = require('body-parser');
 var customers = require('../controllers/customers.js');
 var orders = require('../controllers/orders.js');
+var products = require('../controllers/products.js');
 
 module.exports = function(app) {
     app.use(bodyParser.json());
@@ -30,4 +31,15 @@ module.exports = function(app) {
     app.post('/orders/newOrder', function(req, res) {
         orders.create(req, res);
     })
+
+    ////////////////////
+    // PRODUCT ROUTES //
+    ////////////////////
+    app.get('/products/retrieveAll', function(req, res) {
+        products.retrieveAll(req, res);
+    })
+    app.post('/products/newProduct', function(req, res) {
+        // console.log(req.body);
+        products.newProduct(req, res);
+    });
 }

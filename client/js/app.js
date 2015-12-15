@@ -12,7 +12,8 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'views/partials/dashboard.html'
         })
         .when('/products', {
-            templateUrl: 'views/partials/products.html'
+            templateUrl: 'views/partials/products.html',
+            controller: 'ProductsController'
         })
         .when('/orders', {
             templateUrl: 'views/partials/orders.html',

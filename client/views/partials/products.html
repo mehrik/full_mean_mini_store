@@ -1,3 +1,30 @@
 <h1>Products</h1>
 
-<div class='col-md-2'></div>
+<div class='three columns'>
+    <form>
+        <input type='text' class='u-full-width' placeholder='filter...'>
+        <button class='u-full-width'>Filter</button> 
+    </form>
+    <h6>Add a new product</h6>
+    <form>
+        <label>Name:</label>
+        <input type='text' placeholder='name...' class='u-full-width' ng-model="newProduct.name">
+        <label>Image (url):</label>
+        <input type='text' placeholder='http://' class='u-full-width' ng-model="newProduct.image">
+        <label>Description:</label>
+        <textarea class='u-full-width' ng-model="newProduct.description"></textarea>
+        <label>Initial Quantity</label>
+        <input type='number' min=1 class='u-full-width' ng-model='newProduct.quantity'> 
+        <button class='button-primary u-full-width' ng-click='addNewProduct()'>Create</button>
+    </form>
+</div>
+
+<div class='eight columns'>
+    <div class='row'>
+        <div class='three columns shit' ng-repeat='product in products'>
+            <img src="{{ product.image }}" class='defualt-img-size'>
+            <label class='align' ng-bind='product.name'></label>
+            <p class='align'>({{ product.quantity }} left)</p>
+        </div>
+    </div>
+</div>

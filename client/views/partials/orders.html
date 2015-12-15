@@ -6,6 +6,7 @@
     <select ng-options='customer.name for customer in customers' ng-model='newOrder.customer'></select>
     <label for='products'>Order</label>
     <input type='number' min=1 ng-model='newOrder.quantity'>
+    <!-- This select needs to be populated by the products collection -->
     <select ng-model='newOrder.product'>
         <option>Nike Shoes</option>
         <option>Gloves</option>
@@ -29,11 +30,11 @@
     </thead>
     <tbody>
     <!-- use ng repeat for all orders -->
-        <tr ng-repeat='order in orders | filter:searchText'>
+        <tr ng-repeat="order in orders | filter:searchText">
             <td ng-bind='order._customer.name'></td>
             <td ng-bind='order.product'></td>
             <td ng-bind='order.quantity'></td>
-            <td ng-bind='order.created_at'></td>
+            <td ng-bind="order.created_at | date:'longDate'"></td>
         </tr>
     </tbody>
 </table>
