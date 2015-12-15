@@ -21,21 +21,21 @@
         ng-model='newOrder.product'
         required></select>
 
-    <button class='button-primary' ng-click="addNewOrder()">Order</button>
+    <button class='button-primary' ng-click="addNewOrder()" ng-disabled='orderForm.$invalid'>Order</button>
 </form>
 
 <!-- customer validation  -->
-<div ng-messages='orderForm.orderCustomer.$error' role='alert' style='color:maroon'>
+<div ng-messages='orderForm.orderCustomer.$error' role='alert' ng-show='orderForm.orderCustomer.$touched' style='color:maroon'>
     <div ng-message='required'>Customer field required</div>
 </div>
 <!-- quantity validation  -->
-<div ng-messages='orderForm.orderQty.$error' role='alert' ng-show='orderForm.orderQty.$invalid' style='color:maroon'>
+<div ng-messages='orderForm.orderQty.$error' role='alert' ng-show='orderForm.orderQty.$touched' style='color:maroon'>
     <div ng-message='required'>Quantity Field is requried</div>
     <div ng-message='max'>Cannot order more than available</div>
     <div ng-message='min'>Minimum order is 1</div>
 </div>
 <!-- product choice validation -->
-<div ng-messages='orderForm.orderProduct.$error' role='alert' ng-show='orderForm.orderProduct.$dirty' style='color:maroon'>
+<div ng-messages='orderForm.orderProduct.$error' role='alert' ng-show='orderForm.orderProduct.$touched' style='color:maroon'>
     <div ng-message>Please select a product</div>
 </div>
 
